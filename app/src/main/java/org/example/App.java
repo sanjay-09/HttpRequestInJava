@@ -18,6 +18,8 @@ public class App {
 
     public static void main(String[] args) throws IOException {
 
+
+        //okhttp client
         OkHttpClient client=new OkHttpClient();
 
         Request r=new Request.Builder().url("https://jsonplaceholder.typicode.com/todos/1").build();
@@ -29,6 +31,28 @@ public class App {
         catch (Exception e){
             System.out.println("exception");
         }
+
+        //retrofit client
+        //Retrofit does this:
+        //
+        //Makes HTTP request using OkHttp
+        //
+        //Receives response body as JSON string
+        //
+        //Finds GsonConverterFactory
+        //
+        //Calls internally:
+
+        Retrofit rclient=new Retrofit.Builder().baseUrl("https://jsonplaceholder.typicode.com")
+                .addConverterFactory(GsonConverterFactory.create()).build();
+
+        TodoService todoService=rclient.create(TodoService.class);
+        Todo t=todoService.getTodoById("1").execute().body();
+        System.out.println(t);
+
+
+
+
 
 
 

@@ -22,13 +22,14 @@ public class Todo{
 		return userId;
 	}
 
-    @Override
-    public String toString() {
-        return "Todo{" +
-                "id=" + id +
-                ", completed=" + completed +
-                ", title='" + title + '\'' +
-                ", userId=" + userId +
-                '}';
-    }
+	@Override
+ 	public String toString(){
+		return 
+			"Todo{" + 
+			"id = '" + id + '\'' + 
+			",completed = '" + completed + '\'' + 
+			",title = '" + title + '\'' + 
+			",userId = '" + userId + '\'' + 
+			"}";
+		}
 }
